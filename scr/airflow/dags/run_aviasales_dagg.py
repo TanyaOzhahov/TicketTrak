@@ -3,7 +3,6 @@ import requests
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from loguru import logger
-
 # ---------------------------------------------------------
 # HOST FastAPI
 HOST = "host.docker.internal"
@@ -32,8 +31,8 @@ ROUTES = [
 
 # ---------------------------------------------------------
 # Параметры периода
-MONTHS_BACK = 2        # сколько месяцев назад
-MONTHS_FORWARD = 1     # сколько месяцев вперёд
+MONTHS_BACK = 1      # сколько месяцев назад
+MONTHS_FORWARD = 4      # сколько месяцев вперёд
 RETURN_DELTA = 5       # сколько дней между вылетом и возвратом
 
 
@@ -72,7 +71,7 @@ def task_trigger_aviasales_prices():
 
             try:
                 response = requests.post(
-                    f"http://{HOST}:8082/prices",
+                    f"http://{HOST}:8081/prices",
                     json=json_data,
                     timeout=60
                 )

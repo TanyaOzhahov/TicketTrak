@@ -1,0 +1,12 @@
+name: 'aviasales'
+version: '1.0'
+profile: 'aviasales'
+
+models:
+  aviasales:
+    ods:
+      materialized: view
+    dwh:
+      materialized: table
+
+

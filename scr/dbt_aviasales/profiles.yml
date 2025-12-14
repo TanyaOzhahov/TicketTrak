@@ -1,0 +1,11 @@
+aviasales:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost        # или host.docker.internal
+      user: postgres
+      password: postgres
+      port: 5432
+      dbname: postgres
+      schema: analytics
